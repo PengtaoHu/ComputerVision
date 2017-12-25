@@ -1,0 +1,9 @@
+im_path='2.jpg';
+im=imread(im_path);
+im=rgb2gray(im);
+im=histogram_equalization(im);
+[cim,r,c]=harris(im,3,2^12,1,1);
+features1=get_features(im,r,c);
+p=1;
+s=features1(p,:);
+save('left.mat','s');

@@ -1,0 +1,22 @@
+function [F]=fit_fundamental(matches)
+points_vector=zeros(9,size(matches,1));
+F=zeros(3);
+for j=1:size(matches,1)
+    points_vector(1,j)=matches(j,3)*matches(j,1);
+    points_vector(2,j)=matches(j,3)*matches(j,2);
+    points_vector(3,j)=matches(j,3);
+    points_vector(4,j)=matches(j,4)*matches(j,1);
+    points_vector(5,j)=matches(j,4)*matches(j,2);
+    points_vector(6,j)=matches(j,4);
+    points_vector(7,j)=matches(j,1);
+    points_vector(8,j)=matches(j,2);
+    points_vector(9,j)=1;
+end
+[U,~,~]=svd(points_vector);
+F_vector = U(:,8);
+F(1,:)=F_vector(1:3,1);
+F(2,:)=F_vector(4:6,1);
+F(3,:)=F_vector(7:9,1);
+[U,S,V]=svd(F);
+S(3,3)=0;
+F=U*S*V';
