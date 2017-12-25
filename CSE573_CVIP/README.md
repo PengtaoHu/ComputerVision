@@ -4,3 +4,5 @@ Homework2 : Scale-space blob detection
 Homework3 : Homography and fundamental matrix estimation  
 Homework4 : Autoencoders for Image Classification  
 FinalProject : A solution to a defect and details of Integration of color and texture cues in a rough-set–based segmentation method  
+  
+*Code and reports only, no data or demo.
